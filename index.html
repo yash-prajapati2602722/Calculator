@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calc Atlas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">∑</span><span>Calc Atlas</span></div>
+      <p class="eyebrow">Calculator library</p>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="Find a calculator" aria-label="Find a calculator">
+        <kbd>/</kbd>
+      </div>
+      <nav class="library" aria-label="Calculator library">
+        <button class="nav-item active" data-filter="all"><span>✦</span>All calculators <b>27</b></button>
+        <button class="nav-item" data-filter="scientific"><span>⌁</span>Scientific <b>4</b></button>
+        <button class="nav-item" data-filter="graphing"><span>⌗</span>Graphing <b>8</b></button>
+        <button class="nav-item" data-filter="classic"><span>◫</span>Classic <b>15</b></button>
+      </nav>
+      <div class="sidebar-section">
+        <div class="section-label">Your workspace <button class="tiny-button" aria-label="Add calculator">+</button></div>
+        <button class="workspace-item"><span class="dot orange"></span>Practice set <b>12</b></button>
+        <button class="workspace-item"><span class="dot teal"></span>Exam prep <b>8</b></button>
+      </div>
+      <div class="sidebar-footer"><span class="status-dot"></span>Library synced <span>·</span> v1.0</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><p class="eyebrow">Workspace / Scientific</p><h1>Choose your instrument</h1></div>
+        <div class="top-actions"><button class="icon-button" title="Toggle theme" id="theme-toggle">◐</button><button class="avatar">AJ</button></div>
+      </header>
+
+      <section class="featured-grid">
+        <button class="featured-card ti-card calc-select" data-name="TI-36X Pro">
+          <div class="card-top"><span class="brand-chip ti">TI</span><span class="arrow">↗</span></div>
+          <div><p class="eyebrow">Featured scientific</p><h2>TI-36X Pro</h2><p>16-digit precision with advanced engineering notation.</p></div>
+          <span class="card-link">Open calculator <span>→</span></span>
+        </button>
+        <button class="featured-card casio-card calc-select" data-name="Casio FX-991ES Plus">
+          <div class="card-top"><span class="brand-chip casio">CASIO</span><span class="arrow">↗</span></div>
+          <div><p class="eyebrow">Featured scientific</p><h2>FX-991ES Plus</h2><p>Natural textbook display for everyday problem solving.</p></div>
+          <span class="card-link">Open calculator <span>→</span></span>
+        </button>
+        <button class="featured-card multiview-card calc-select" data-name="TI-30XS MultiView">
+          <div class="card-top"><span class="brand-chip multiview">TI</span><span class="arrow">↗</span></div>
+          <div><p class="eyebrow">Featured scientific</p><h2>TI-30XS MultiView</h2><p>Four-line display made for clear, confident work.</p></div>
+          <span class="card-link">Open calculator <span>→</span></span>
+        </button>
+      </section>
+
+      <section class="workbench">
+        <div class="section-heading"><div><p class="eyebrow">Live workspace</p><h2 id="calculator-title">TI-36X Pro</h2></div><div class="mode-tabs"><button class="mode active">Calculate</button><button class="mode">Notes</button></div></div>
+        <div class="calculator-layout">
+          <div class="calculator-body">
+            <div class="calc-head"><div><span class="brand-chip ti">TI</span><strong id="calc-model">TI-36X Pro</strong></div><div class="calc-status"><span class="green-dot"></span>Ready</div></div>
+            <div class="display-wrap"><div class="display-meta"><span id="angle-mode">DEG</span><span id="memory-state">M</span></div><div class="display-expression" id="expression">0</div><div class="display-result" id="result">0</div></div>
+            <div class="calc-toolbar"><button id="angle-button">DEG</button><button id="clear-history">Clear history</button><span>⌘ Enter to calculate</span></div>
+            <div class="keypad" id="keypad">
+              <button class="key function" data-value="sin(">sin</button><button class="key function" data-value="cos(">cos</button><button class="key function" data-value="tan(">tan</button><button class="key function" data-value="sqrt(">√</button><button class="key function" data-value="log(">log</button>
+              <button class="key utility" data-action="clear">AC</button><button class="key utility" data-action="backspace">⌫</button><button class="key operator" data-value="^">xʸ</button><button class="key operator" data-value="/">÷</button><button class="key operator" data-value="*">×</button>
+              <button class="key" data-value="7">7</button><button class="key" data-value="8">8</button><button class="key" data-value="9">9</button><button class="key operator" data-value="-">−</button><button class="key function" data-value="(">(</button>
+              <button class="key" data-value="4">4</button><button class="key" data-value="5">5</button><button class="key" data-value="6">6</button><button class="key operator" data-value="+">+</button><button class="key function" data-value=")">)</button>
+              <button class="key" data-value="1">1</button><button class="key" data-value="2">2</button><button class="key" data-value="3">3</button><button class="key constant" data-value="pi">π</button><button class="key constant" data-value="e">e</button>
+              <button class="key wide" data-value="0">0</button><button class="key" data-value=".">.</button><button class="key operator" data-value="%">%</button><button class="key equals" data-action="calculate">=</button>
+            </div>
+          </div>
+          <aside class="history-panel"><div class="panel-heading"><h3>Recent calculations</h3><span>⋮</span></div><div id="history" class="history-list"><div class="history-item"><span>sin(30) + √16</span><strong>4.5</strong><small>just now · DEG</small></div><div class="history-item"><span>2⁸ ÷ 4</span><strong>64</strong><small>2 min ago</small></div><div class="history-item"><span>log(1000)</span><strong>3</strong><small>5 min ago</small></div></div><button class="outline-button" id="copy-history">Export history <span>↗</span></button></aside>
+        </div>
+      </section>
+
+      <section class="timeline-section">
+        <div class="section-heading"><div><p class="eyebrow">The collection</p><h2>Five decades of calculators</h2></div><button class="outline-button" id="view-all">View all models <span>→</span></button></div>
+        <div class="timeline" id="timeline">
+          <article class="timeline-row"><div class="year">1970s</div><div class="models"><span class="model-pill">HP-35 <small>1972</small></span><span class="model-pill">Casio FX-1 <small>1972</small></span><span class="model-pill">HP-45 <small>1973</small></span><span class="model-pill">TI SR-50 <small>1974</small></span><span class="model-pill">TI-30 <small>1976</small></span><span class="model-pill">HP-41C <small>1979</small></span></div></article>
+          <article class="timeline-row"><div class="year">1980s</div><div class="models"><span class="model-pill">HP-11C <small>1981</small></span><span class="model-pill">HP-15C <small>1982</small></span><span class="model-pill">Casio FX-7000G <small>1985</small></span><span class="model-pill">HP-28C <small>1987</small></span><span class="model-pill">TI-68 <small>1989</small></span></div></article>
+          <article class="timeline-row"><div class="year">1990s</div><div class="models"><span class="model-pill">TI-81 <small>1990</small></span><span class="model-pill">HP-48SX <small>1990</small></span><span class="model-pill">TI-82 <small>1993</small></span><span class="model-pill">TI-83 <small>1996</small></span><span class="model-pill">TI-89 <small>1998</small></span><span class="model-pill">FX-991MS <small>1990s</small></span></div></article>
+          <article class="timeline-row"><div class="year">2000s</div><div class="models"><span class="model-pill">FX-82ES <small>2004</small></span><span class="model-pill">FX-991ES <small>2005</small></span><span class="model-pill">TI-84 Plus <small>2004</small></span><span class="model-pill">TI-Nspire <small>2007</small></span><span class="model-pill">TI-30XS MultiView <small>2007</small></span></div></article>
+          <article class="timeline-row"><div class="year">2010s</div><div class="models"><span class="model-pill">TI-36X Pro <small>2011</small></span><span class="model-pill">HP Prime <small>2013</small></span><span class="model-pill">TI-84 Plus CE <small>2015</small></span><span class="model-pill">FX-991EX ClassWiz <small>2015</small></span></div></article>
+          <article class="timeline-row current"><div class="year">2020s</div><div class="models"><span class="model-pill highlighted">FX-991CW ClassWiz <small>2023</small></span><span class="model-pill">FX-82CW <small>2023</small></span><span class="model-pill">FX-570CW <small>2023</small></span><span class="model-pill">TI-Nspire CX II <small>current</small></span><span class="model-pill">TI-84 Plus CE Python <small>current</small></span></div></article>
+        </div>
+      </section>
+      <footer><span>Calc Atlas</span><span>Built for curious minds · 2026</span></footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
